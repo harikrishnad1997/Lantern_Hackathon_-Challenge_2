@@ -1,4 +1,4 @@
-# hash:sha256:118d78dc244019bc5db417254e7102fc6e651dc9c05e44da20b90b305264e835
-FROM registry.hackathon2023.radr-ai.com/codeocean/py-r:python3.10.12-R4.2.2-IRkernel-ubuntu22.04
+# hash:sha256:fa6653087e17174f9216477971cc5ffd04a31fa0198e73078251c5cd3010b865
+FROM registry.hackathon2023.radr-ai.com/codeocean/tensorflow:2.11-python3.10-cuda11.7.0-runtime-ubuntu22.04
 
 ARG DEBIAN_FRONTEND=noninteractive

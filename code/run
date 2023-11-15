@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -ex
+
+# Workaround for discrepancy in loaded packages between interactive and non-interactive execution
+# See https://bugs.r-project.org/bugzilla/show_bug.cgi?id=16921 for more details
+export R_DEFAULT_PACKAGES=datasets,utils,grDevices,graphics,stats,methods
+
+# This is the master script for the capsule. When you click "Reproducible Run", the code in this file will execute.
+python -u create_sample_submission.py "$@"
