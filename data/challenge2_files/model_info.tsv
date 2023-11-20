@@ -1,16 +1,16 @@
-Fulvestrant_model	Mitomycin_model	Gefitinib_model	Rapamycin_model	Rapamycin.Gefitinib_model	Mitomycin.Fulvestrant_model
-Filename	NA	NA	NA	NA	NA	NA
-Algorithm used	NA	NA	NA	NA	NA	NA
-Training accuracy	NA	NA	NA	NA	NA	NA
-Number of features	NA	NA	NA	NA	NA	NA
-Feature evaluation method	NA	NA	NA	NA	NA	NA
-Overall key feature	NA	NA	NA	NA	NA	NA
-Breast key feature	NA	NA	NA	NA	NA	NA
-BrainCNS key feature	NA	NA	NA	NA	NA	NA
-Bowel key feature	NA	NA	NA	NA	NA	NA
-Blood key feature	NA	NA	NA	NA	NA	NA
-Skin key feature	NA	NA	NA	NA	NA	NA
-Lung key feature	NA	NA	NA	NA	NA	NA
-Ovary key feature	NA	NA	NA	NA	NA	NA
-Prostate key feature	NA	NA	NA	NA	NA	NA
-Kidney key feature	NA	NA	NA	NA	NA	NA
+	Fulvestrant_model	Mitomycin_model	Gefitinib_model	Rapamycin_model	Rapamycin.Gefitinib_model	Mitomycin.Fulvestrant_model
+Filename	DeepLearning_grid_2_AutoML_3_20231120_05417_model_3	DeepLearning_grid_2_AutoML_4_20231119_83344_model_3	DeepLearning_grid_2_AutoML_2_20231119_222908_model_9	GLM_1_AutoML_5_20231119_84245	DeepLearning_grid_1_AutoML_8_20231119_90318_model_3	DeepLearning_grid_1_AutoML_7_20231119_85638_model_8
+Algorithm used	4 Layered neural network with Drop out and softmax	4 Layered neural network with Drop out and softmax	4 Layered neural network with Drop out and softmax	Generalized Linear Modeling with Ridge lambda = 0.01762	4 Layered neural network with Drop out and softmax	4 Layered neural network with Drop out and softmax
+Training accuracy	0.9791667	0.8958333	0.875	0.9583333	0.8958333	0.9583333
+Number of features	1601	892	837	1000	1354	578
+Feature evaluation method	Neuron Weights	Neuron Weights	Neuron Weights	Z score of each co-effiecient 	Neuron Weights	Neuron Weights
+Overall key feature	rna_ZDHHC11	rna_RAB9A	rna_LINC00941	rna_MCOLN2	rna_C7orf13	rna_PLSCR1
+Breast key feature	rna_ZDHHC11	rna_RAB9A	rna_LINC00941	rna_MCOLN2	rna_C7orf13	rna_PLSCR1
+BrainCNS key feature	rna_ZDHHC11	rna_RAB9A	rna_LINC00941	rna_MCOLN2	rna_C7orf13	rna_PLSCR1
+Bowel key feature	rna_ZDHHC11	rna_RAB9A	rna_LINC00941	rna_MCOLN2	rna_C7orf13	rna_PLSCR1
+Blood key feature	rna_ZDHHC11	rna_RAB9A	rna_LINC00941	rna_MCOLN2	rna_C7orf13	rna_PLSCR1
+Skin key feature	rna_ZDHHC11	rna_RAB9A	rna_LINC00941	rna_MCOLN2	rna_C7orf13	rna_PLSCR1
+Lung key feature	rna_ZDHHC11	rna_RAB9A	rna_LINC00941	rna_MCOLN2	rna_C7orf13	rna_PLSCR1
+Ovary key feature	rna_ZDHHC11	rna_RAB9A	rna_LINC00941	rna_MCOLN2	rna_C7orf13	rna_PLSCR1
+Prostate key feature	rna_ZDHHC11	rna_RAB9A	rna_LINC00941	rna_MCOLN2	rna_C7orf13	rna_PLSCR1
+Kidney key feature	rna_ZDHHC11	rna_RAB9A	rna_LINC00941	rna_MCOLN2	rna_C7orf13	rna_PLSCR1
