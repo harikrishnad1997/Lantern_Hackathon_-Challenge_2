@@ -1,0 +1,92 @@
+1. Describe the approach and methodology used to generate models, and if applicable indicate what differed in preparation of models to predict a single drug treatment vs drug combination treatment. 300 words or less.
+
+We comprehensively explored various feature selection methods aimed at curtailing the feature count. The following techniques were employed:
+
+Chi-Square Test: Applied to binomial features, eliminating those exhibiting excessive stochasticity based on a low p-value.
+
+* Variance Threshold: Implemented on standard-scaled continuous variables to discard static and quasi-static features.
+
+* ANOVA: Executed on continuous variables to eliminate random variables.
+
+While we initially considered VIF (Variance Inflation Factor) and **Pearson Correlation** for addressing highly correlated features, we eventually omitted them from our code. Our adoption of regularized models drove this decision, tree-based boosting, and neural networks, which inherently mitigate issues arising from feature intercorrelation.
+
+Although we experimented with Lasso in conjunction with logistic regression to eliminate features with low coefficients, we maintained confidence that our chosen models were adept at handling the subtleties of multiple features.
+
+An alternative approach involved employing Simulated Annealing and Probabilistic Optimization with Random Forest. However, this method drastically reduced the feature set, raising concerns about potential underfitting.
+
+In summary, our rigorous exploration of feature selection methods aimed to enhance the robustness of our models by judiciously pruning the feature space.
+2. Write pseudocode that calculates feature contribution to predictions that could generally be applied to any predictive model. No space limitation.
+
+FeatureSelectionPipeline:
+    Initialize(df, rna_columns, mut_columns, target_column):
+        self.df = df
+        self.rna_columns = rna_columns
+        self.mut_columns = mut_columns
+        self.target_column = target_column
+ 
+    create_rna_pipeline:
+        X = df[rna_columns]
+        pipeline = Pipeline([
+            ('scaler', StandardScaler()),
+            ('variance_threshold', VarianceThreshold(threshold=0.1))
+        ])
+        X_transformed = pipeline.fit_transform(X)
+        selected_features = pipeline.named_steps['variance_threshold'].get_support(indices=True)
+        excluded_columns = np.setdiff1d(range(len(X.columns)), selected_features)
+        rna_excluded_columns = X.columns[excluded_columns]
+        rna_var_columns = list(set(rna_columns) - set(rna_excluded_columns))
+        return rna_var_columns
+ 
+    perform_anova_test(selected_columns):
+        y = df[target_column]
+        selector = SelectKBest(score_func=f_classif, k='all')
+        selector.fit(df[selected_columns], y)
+        selected_indices = selector.get_support(indices=True)
+        f_values = selector.scores_
+        p_values = selector.pvalues_
+        anova_test_result_df = DataFrame({
+            'Feature': selected_columns,
+            'F-Value': f_values,
+            'P-Value': p_values
+        })
+        return anova_test_result_df[anova_test_result_df["P-Value"] < 0.05].sort_values(by="F-Value", ascending=False)
+ 
+    perform_chi_square_test:
+        y = df[target_column]
+        selector = SelectKBest(score_func=chi2, k='all')
+        selector.fit(df[mut_columns], y)
+        selected_indices = selector.get_support(indices=True)
+        f_values = selector.scores_
+        p_values = selector.pvalues_
+        chi_test_result_df = DataFrame({
+            'Feature': mut_columns,
+            'F-Value': f_values,
+            'P-Value': p_values
+        })
+        return chi_test_result_df.sort_values(by="F-Value", ascending=False)
+ 
+    get_final_columns(anova_test_result_df, chi_test_result_df):
+        rna_final_columns = list(set(anova_test_result_df[anova_test_result_df["P-Value"] <= 0.05]["Feature"]))
+        mut_final_columns = list(set(chi_test_result_df[chi_test_result_df["P-Value"] <= 0.05]["Feature"]))
+        final_columns = [target_column, 'type']
+        final_columns.extend(mut_final_columns)
+        final_columns.extend(rna_final_columns)
+        final_columns = list(set(final_columns))
+        return final_columns
+
+3. Describe any notable patterns observed when comparing important features, or overall model interpretation, of single agents and combinations of the same agents and suggest possible reasons for such pattern. 300 words or less.
+
+We see that combination of drugs give us better results. Combinations of Mitomycin doing the best. This is due to major changes to rna_LINC00941 Fragments Per Kilobase Million helped in the response to the cancer. Rapamcyin has shown promising results when used with Gefitinib, but doesn't exceed the effect of Mitomycin.
+
+
+4. There are a staggeringly large number of potential drug combinations. It is highly desirable to use one drug to overcome the resistance to another drug in various cancers, or to identify synergy where the efficacy of drugs are significantly larger than the additive impact of the same drugs applied alone. However, drug efficacy as well as drug combination efficacy significantly varies across individual tumors, making it challenging to test drug combinations one by one. In a scenario where you had extensive single-drug response data (similar to the data of this challenge given with individual drugs in this challenge), suggest an approach to prioritize drug combination candidates for pairs that have yet to be tested in combination. 300 words or less.
+
+* Extract relevant features from the extensive single-drug response data.
+
+* Train predictive models on the single-drug response data to establish a baseline understanding of the factors influencing drug efficacy. 
+
+* Assess the feature importance from the trained models to identify the molecular and genetic factors that strongly influence drug responses. 
+
+* Create a ranking system that weighs these criteria to identify the most promising drug combinations.
+
+* Utilize the insights gained from single-drug response models to predict the potential efficacy of untested drug combinations. 

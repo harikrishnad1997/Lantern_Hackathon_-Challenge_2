@@ -1,0 +1,10 @@
+	Fulvestrant_response	Mitomycin_response	Gefitinib_response	Rapamycin_response	Rapamycin.Gefitinib_response	Mitomycin.Fulvestrant_response	Fulvestrant_key_feature	Mitomycin_key_feature	Gefitinib_key_feature	Rapamycin_key_feature	Rapamycin.Gefitinib_key_feature	Mitomycin.Fulvestrant_key_feature
+BrainCNS_VFF746	0	0	0	0	0	0	rna_ZDHHC11	rna_RAB9A	rna_PLCXD3	rna_MCOLN2	rna_C7orf13	rna_PLSCR1
+Bowel_KI64	0	1	0	0	0	1	rna_ZDHHC12	rna_RAB9A	rna_PLCXD4	rna_MCOLN3	rna_C7orf14	rna_PLSCR2
+Bowel_QEVT62	0	0	0	0	0	1	rna_ZDHHC13	rna_RAB9A	rna_PLCXD5	rna_MCOLN4	rna_C7orf15	rna_PLSCR3
+Lung_TXY395	0	0	0	0	0	0	rna_ZDHHC14	rna_RAB9A	rna_PLCXD6	rna_MCOLN5	rna_C7orf16	rna_PLSCR4
+Lung_JIL5	0	1	0	0	1	0	rna_ZDHHC15	rna_RAB9A	rna_PLCXD7	rna_MCOLN6	rna_C7orf17	rna_PLSCR5
+Blood_CB485	0	1	0	0	0	1	rna_ZDHHC16	rna_RAB9A	rna_PLCXD8	rna_MCOLN7	rna_C7orf18	rna_PLSCR6
+Skin_SFL7	0	0	0	0	0	0	rna_ZDHHC17	rna_RAB9A	rna_PLCXD9	rna_MCOLN8	rna_C7orf19	rna_PLSCR7
+Skin_VAK5	0	0	0	0	0	0	rna_ZDHHC18	rna_RAB9A	rna_PLCXD10	rna_MCOLN9	rna_C7orf20	rna_PLSCR8
+Ovary_XT38	0	0	0	0	1	0	rna_ZDHHC19	rna_RAB9A	rna_PLCXD11	rna_MCOLN10	rna_C7orf21	rna_PLSCR9
