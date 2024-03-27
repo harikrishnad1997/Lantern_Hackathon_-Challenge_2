@@ -6,7 +6,7 @@ This project addresses the challenge of predicting drug and drug combination res
 This can personalize treatment plans and improve our understanding of drug mechanisms.
 
 We utilized various data types, including drug response, cancer type, mutation data, and RNA expression levels.
-Our focus was on building interpretable models, employing techniques like Shapley values to identify key features influencing drug response predictions.
+We focused on building interpretable models, employing techniques like Shapley values to identify key features influencing drug response predictions.
 
 ## Submission Highlights:
 
