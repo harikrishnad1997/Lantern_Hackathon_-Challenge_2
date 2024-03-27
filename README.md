@@ -1,4 +1,4 @@
-# Lantern Hackathon Challenge 2: Drug Combination Response Prediction
+# Lantern Hackathon Challenge 2: Drug Combination Response Prediction (2nd place)
 
 ## Major Goal
 This project addresses the challenge of predicting drug and drug combination response in cancer using a deep learning model.
